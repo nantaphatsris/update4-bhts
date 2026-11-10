@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pretest | Behind The Sound</title>
+
+  <link rel="stylesheet" href="pretest.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- HEADER: ไม่มีเมนูสามขีดแล้ว -->
+
+  <header class="quiz-header">
+
+    <button
+      class="back-button"
+      id="backButton"
+      type="button"
+      aria-label="Back to Home">
+      ‹
+    </button>
+
+    <div class="header-title">
+      PRETEST
+    </div>
+
+    <div class="header-space"></div>
+
+  </header>
+
+
+  <!-- MAIN QUIZ -->
+
+  <main class="quiz-container">
+
+    <div class="quiz-top-info">
+      <span>PRETEST</span>
+      <span id="questionNumber">Question 1 of 15</span>
+    </div>
+
+
+    <!-- QUESTION CARD -->
+
+    <section class="question-card">
+
+      <div class="question-progress-text" id="questionLabel">
+        Question 1 of 15
+      </div>
+
+      <h2 class="question-text" id="questionText">
+        Loading question...
+      </h2>
+
+
+      <!-- ANSWERS -->
+
+      <div class="answer-list" id="answerList"></div>
+
+
+      <p class="answer-hint" id="answerHint">
+        Select one answer to continue.
+      </p>
+
+
+      <!-- TIMER -->
+
+      <div class="timer-section">
+
+        <div class="timer-text">
+          <span>Time Remaining</span>
+          <strong id="timer">15:00</strong>
+        </div>
+
+        <div class="timer-track">
+          <div class="timer-fill" id="timerFill"></div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="quiz-navigation">
+
+      <button
+        type="button"
+        class="previous-button"
+        id="previousButton"
+        disabled>
+        Previous
+      </button>
+
+      <button
+        type="button"
+        class="next-button"
+        id="nextButton"
+        disabled>
+        Next
+      </button>
+
+    </div>
+
+
+    <!-- BOTTOM INFO -->
+
+    <div class="bottom-progress">
+
+      <span id="answeredCount">0 / 15 Answered</span>
+
+      <span>BEHIND THE SOUND</span>
+
+    </div>
+
+    <p class="save-status" id="saveStatus" role="status"></p>
+
+  </main>
+
+
+  <!-- RESULT POPUP -->
+
+  <div class="result-overlay" id="resultOverlay">
+
+    <div class="result-card">
+
+      <div class="result-icon">✓</div>
+
+      <p class="result-label">PRETEST COMPLETED</p>
+
+      <h2>Your Result</h2>
+
+      <div class="result-score">
+        <strong id="finalScore">0</strong>
+        <span>/ 15</span>
+      </div>
+
+      <p class="result-message" id="resultMessage">
+        Your answers have been submitted.
+      </p>
+
+      <button
+        type="button"
+        id="homeButton"
+        class="result-home-button">
+        Back to Home →
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script type="module" src="pretest.js"></script>
+
+</body>
+</html>

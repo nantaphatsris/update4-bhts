@@ -1,0 +1,814 @@
+
+/* =========================================
+   BEHIND THE SOUND
+   HOME PAGE - DARK GOLD THEME
+========================================= */
+
+:root {
+  --bg: #100e0c;
+  --panel: #191512;
+  --orange: #ff9d43;
+  --gold: #e8a04d;
+  --text: #f4e7d9;
+  --muted: #b9a99a;
+  --border: rgba(255,157,67,.25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Montserrat', 'Kanit', sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+
+/* =========================================
+   1. HEADER
+   รูปแบบเดียวกับ Landing Page
+   ☰ ซ้าย + Logo ถัดมา
+========================================= */
+
+.main-header {
+  width: 100%;
+  height: 75px;
+  padding: 0 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  background: rgba(20,17,14,.97);
+  border-bottom: 1px solid rgba(255,157,67,.25);
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Header left group */
+
+.header-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+}
+
+/* Hamburger */
+
+.menu-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: none;
+
+  color: var(--orange);
+  font-size: 29px;
+  line-height: 1;
+
+  padding: 5px;
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+.menu-button:hover {
+  color: #ffc078;
+  transform: scale(1.08);
+}
+
+/* Logo */
+
+.logo {
+  font-size: 23px;
+  font-weight: 800;
+  color: var(--orange);
+
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -.5px;
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   2. SIDE MENU
+========================================= */
+
+.main-menu {
+  position: fixed;
+
+  top: 75px;
+  left: 0;
+
+  width: 290px;
+  height: calc(100vh - 75px);
+
+  padding: 25px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  background: #191512;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+
+  box-shadow: 0 15px 35px rgba(0,0,0,.5);
+
+  transform: translateX(-100%);
+  visibility: hidden;
+
+  transition: .3s ease;
+
+  overflow-y: auto;
+}
+
+.main-menu.active {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.main-menu > a {
+  color: #e8d6c5;
+  font-size: 16px;
+
+  padding: 20px 10px;
+
+  border-bottom: 1px solid rgba(255,157,67,.15);
+
+  transition: .3s;
+}
+
+.main-menu > a:hover {
+  color: var(--orange);
+  padding-left: 18px;
+}
+
+.menu-divider {
+  width: 100%;
+  height: 1px;
+  margin: 20px 0;
+
+  background: var(--border);
+}
+
+.menu-logout {
+  width: 100%;
+  padding: 13px;
+
+  border: 1px solid var(--orange);
+  border-radius: 25px;
+
+  background: transparent;
+  color: var(--orange);
+
+  font-size: 15px;
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+.menu-logout:hover {
+  box-shadow: 0 0 15px rgba(255,157,67,.3);
+}
+
+
+/* =========================================
+   3. MAIN CONTAINER
+========================================= */
+
+.home-container {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: auto;
+  padding: 55px 35px 30px;
+}
+
+
+/* =========================================
+   4. SECTION HEADING
+========================================= */
+
+.section-heading {
+  margin-bottom: 20px;
+}
+
+.section-label {
+  color: var(--orange);
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+  margin-bottom: 8px;
+}
+
+.section-heading h1,
+.section-heading h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -.7px;
+}
+
+
+/* =========================================
+   5. LEARNING PROGRESS CARD
+========================================= */
+
+.progress-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+  gap: 20px;
+  padding: 25px;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255,157,67,.06),
+      transparent 55%
+    ),
+    var(--panel);
+
+  border: 1px solid var(--border);
+  border-radius: 17px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-left {
+  min-width: 0;
+}
+
+.progress-caption {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.progress-left h2 {
+  color: var(--orange);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  font-weight: 800;
+}
+
+.progress-left h2 span {
+  color: var(--muted);
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.progress-description {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: -2px;
+}
+
+
+/* Progress Bar */
+
+.progress-bar {
+  width: 100%;
+  max-width: 350px;
+  height: 5px;
+
+  margin-top: 17px;
+
+  background: #352a21;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  width: 0%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    var(--orange),
+    var(--gold)
+  );
+
+  border-radius: 10px;
+  transition: width .5s ease;
+}
+
+
+/* Progress Circle */
+
+.progress-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-circle {
+  width: 105px;
+  height: 105px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background: conic-gradient(
+    var(--orange) 0deg,
+    #392b20 0deg
+  );
+
+  position: relative;
+}
+
+.progress-circle::before {
+  content: "";
+
+  width: 85px;
+  height: 85px;
+
+  position: absolute;
+
+  background: var(--panel);
+  border-radius: 50%;
+}
+
+.circle-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+  z-index: 1;
+}
+
+.circle-inner strong {
+  color: var(--orange);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.circle-inner span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+
+/* =========================================
+   6. DIVIDER
+========================================= */
+
+.progress-divider {
+  grid-column: 1 / -1;
+
+  width: 100%;
+  height: 1px;
+
+  background: var(--border);
+  margin: 2px 0;
+}
+
+
+/* =========================================
+   7. PRETEST + RECENT LESSON
+========================================= */
+
+.info-item {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 5px;
+  border-radius: 10px;
+
+  transition: .25s;
+}
+
+.info-item:hover {
+  background: rgba(255,157,67,.07);
+}
+
+.info-icon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  color: var(--orange);
+}
+
+.info-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.info-item > div:last-child {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.info-title {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.info-item strong {
+  color: var(--orange);
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.info-item span:last-child {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+
+/* =========================================
+   8. START EXPLORING
+========================================= */
+
+.explore-section {
+  margin-top: 50px;
+}
+
+.explore-heading {
+  margin-bottom: 22px;
+}
+
+.explore-description {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+
+/* Three Cards */
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+
+/* Card */
+
+.explore-card {
+  min-height: 185px;
+  padding: 22px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  background: var(--panel);
+
+  border: 1px solid var(--border);
+  border-radius: 15px;
+
+  position: relative;
+  overflow: hidden;
+
+  transition: .3s;
+}
+
+.explore-card::before {
+  content: "";
+
+  width: 120px;
+  height: 120px;
+
+  position: absolute;
+  right: -45px;
+  bottom: -55px;
+
+  background: rgba(255,157,67,.06);
+  border-radius: 50%;
+
+  transition: .3s;
+}
+
+.explore-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--orange);
+
+  box-shadow: 0 10px 30px rgba(255,157,67,.08);
+}
+
+.explore-card:hover::before {
+  transform: scale(1.5);
+}
+
+
+/* Icon */
+
+.explore-icon {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    145deg,
+    #55371f,
+    #2a1d14
+  );
+
+  border: 1px solid rgba(255,157,67,.5);
+  border-radius: 12px;
+
+  color: var(--orange);
+
+  box-shadow:
+    inset 0 0 15px rgba(255,157,67,.08),
+    0 5px 15px rgba(0,0,0,.2);
+}
+
+.explore-icon svg {
+  width: 39px;
+  height: 39px;
+}
+
+
+/* Card Text */
+
+.explore-card-text {
+  margin-top: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.explore-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 7px;
+}
+
+.explore-card p {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.7;
+  max-width: 240px;
+}
+
+.card-arrow {
+  position: absolute;
+  top: 22px;
+  right: 20px;
+
+  color: var(--orange);
+  font-size: 18px;
+  opacity: .6;
+
+  transition: .3s;
+}
+
+.explore-card:hover .card-arrow {
+  opacity: 1;
+  transform: translate(3px,-3px);
+}
+
+
+/* =========================================
+   9. FOOTER
+========================================= */
+
+.home-footer {
+  margin-top: 65px;
+  padding: 22px 0;
+
+  border-top: 1px solid rgba(255,157,67,.12);
+  text-align: center;
+}
+
+.home-footer span {
+  color: var(--orange);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.home-footer p {
+  margin-top: 7px;
+  color: #74675b;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+
+/* =========================================
+   10. TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+  .home-container {
+    padding: 40px 25px 25px;
+  }
+
+}
+
+
+/* =========================================
+   11. MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .main-header {
+    height: 62px;
+    padding: 0 20px;
+  }
+
+  .header-left {
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .menu-button {
+    font-size: 25px;
+  }
+
+  .main-menu {
+    top: 62px;
+    height: calc(100vh - 62px);
+    width: min(290px, 82vw);
+  }
+
+  .home-container {
+    padding: 30px 18px 20px;
+  }
+
+  .section-heading h1,
+  .section-heading h2 {
+    font-size: 22px;
+  }
+
+  .progress-card {
+    padding: 18px;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+
+  .progress-left h2 {
+    font-size: 30px;
+  }
+
+  .progress-circle {
+    width: 88px;
+    height: 88px;
+  }
+
+  .progress-circle::before {
+    width: 71px;
+    height: 71px;
+  }
+
+  .circle-inner strong {
+    font-size: 16px;
+  }
+
+  .circle-inner span {
+    font-size: 9px;
+  }
+
+  .info-item {
+    gap: 9px;
+  }
+
+  .info-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .info-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .info-item strong {
+    font-size: 13px;
+  }
+
+  .explore-section {
+    margin-top: 38px;
+  }
+
+  .explore-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .explore-card {
+    min-height: 165px;
+    padding: 15px;
+  }
+
+  .explore-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .explore-icon svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  .explore-card h3 {
+    font-size: 13px;
+  }
+
+  .explore-card p {
+    font-size: 11px;
+  }
+
+  .card-arrow {
+    top: 14px;
+    right: 14px;
+  }
+
+  .home-footer {
+    margin-top: 45px;
+  }
+
+}
+
+
+/* =========================================
+   12. SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+
+  .progress-card {
+    padding: 14px;
+  }
+
+  .progress-circle {
+    width: 76px;
+    height: 76px;
+  }
+
+  .progress-circle::before {
+    width: 62px;
+    height: 62px;
+  }
+
+  .explore-card {
+    padding: 12px;
+  }
+
+}

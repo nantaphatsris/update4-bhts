@@ -1,0 +1,653 @@
+
+/* =========================================
+   BEHIND THE SOUND
+   SOUND FUNDAMENTALS
+   DARK GOLD THEME
+========================================= */
+
+:root {
+  --bg: #100e0c;
+  --panel: #211d18;
+  --panel-light: #29241e;
+  --orange: #ff9d43;
+  --gold: #e8a04d;
+  --text: #f4e7d9;
+  --muted: #c6b7a9;
+  --border: rgba(255,157,67,.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 35%,
+      rgba(192,95,25,.08),
+      transparent 60%
+    ),
+    #100e0c;
+
+  color: var(--text);
+  font-family: 'Kanit', sans-serif;
+}
+
+button, a {
+  font: inherit;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.fundamentals-header {
+  width: 100%;
+  height: 75px;
+  padding: 0 30px;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+
+  background: rgba(20,17,14,.97);
+  border-bottom: 1px solid var(--border);
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.back-button {
+  justify-self: start;
+
+  width: 42px;
+  height: 45px;
+
+  border: none;
+  background: transparent;
+
+  color: var(--orange);
+  font-size: 38px;
+  font-weight: 300;
+
+  cursor: pointer;
+  transition: .2s;
+}
+
+.back-button:hover {
+  color: #ffd09c;
+  transform: translateX(-3px);
+}
+
+.header-title {
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.header-space {
+  width: 42px;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.fundamentals-container {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: auto;
+  padding: 65px 45px 50px;
+}
+
+
+/* =========================================
+   PAGE HEADING
+========================================= */
+
+.page-heading {
+  margin-bottom: 35px;
+}
+
+.page-heading h1 {
+  color: var(--orange);
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(34px, 5vw, 52px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+
+/* =========================================
+   TOPIC CARDS
+========================================= */
+
+.topic-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.topic-card {
+  position: relative;
+
+  width: 100%;
+  min-height: 155px;
+
+  padding: 30px 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(46,39,31,.98),
+      rgba(25,22,18,.98)
+    );
+
+  border: 1px solid var(--border);
+  border-radius: 18px;
+
+  text-decoration: none;
+  color: var(--text);
+
+  transition: .3s;
+}
+
+.topic-card:hover {
+  border-color: var(--orange);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(65,48,33,.98),
+      rgba(30,24,18,.98)
+    );
+
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.3);
+}
+
+.topic-card h2 {
+  color: #f4bd87;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(21px, 3vw, 28px);
+  font-weight: 700;
+}
+
+.topic-arrow {
+  color: var(--orange);
+  font-size: 42px;
+  font-weight: 300;
+
+  transition: .2s;
+}
+
+.topic-card:hover .topic-arrow {
+  transform: translateX(6px);
+}
+
+
+/* =========================================
+   LESSON CONTENT
+========================================= */
+
+.lesson-page-heading {
+  margin-bottom: 28px;
+}
+
+.lesson-page-heading h1 {
+  color: var(--orange);
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(30px, 5vw, 43px);
+  font-weight: 800;
+}
+
+.content-card {
+  padding: 28px 30px;
+  margin-bottom: 20px;
+
+  background: rgba(40,39,32,.97);
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  box-shadow: 0 8px 22px rgba(0,0,0,.16);
+}
+
+.content-card h3 {
+  margin-bottom: 15px;
+
+  color: var(--orange);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.content-card h4 {
+  margin: 20px 0 10px;
+
+  color: #e7c49d;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.content-card p {
+  margin-bottom: 14px;
+
+  color: #e3d9cd;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.95;
+}
+
+.content-card p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================
+   EVERYDAY SOUND
+========================================= */
+
+.everyday-item {
+  padding: 14px 17px;
+  margin-top: 13px;
+
+  background: rgba(255,255,255,.025);
+
+  border-left: 3px solid var(--gold);
+  border-radius: 5px 10px 10px 5px;
+}
+
+.everyday-item h4 {
+  margin: 0 0 7px;
+  color: #edbd85;
+}
+
+.everyday-item p {
+  margin: 0;
+}
+
+
+/* =========================================
+   FUN FACT
+========================================= */
+
+.fact-card {
+  padding: 26px 30px;
+  margin-bottom: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(111,70,34,.25),
+      rgba(40,39,32,.97)
+    );
+
+  border: 1px solid rgba(255,173,89,.6);
+  border-radius: 16px;
+}
+
+.fact-label {
+  margin-bottom: 13px;
+
+  color: var(--orange);
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.fact-card h3 {
+  margin-bottom: 13px;
+  color: #ffd09c;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.fact-card p {
+  color: #e3d9cd;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.95;
+}
+
+
+/* =========================================
+   FREQUENCY TABLE
+========================================= */
+
+.frequency-table {
+  margin-top: 20px;
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.frequency-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 15px;
+  padding: 17px 20px;
+
+  border-bottom: 1px solid rgba(232,160,77,.2);
+
+  color: #e8ded2;
+  font-size: 14px;
+}
+
+.frequency-row:last-child {
+  border-bottom: none;
+}
+
+.frequency-row:nth-child(odd) {
+  background: rgba(255,255,255,.025);
+}
+
+.frequency-row strong {
+  color: var(--orange);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  text-align: right;
+}
+
+
+/* =========================================
+   WAVEFORM DIAGRAM
+========================================= */
+
+.diagram-card {
+  overflow: hidden;
+}
+
+.wave-diagram {
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px 10px;
+
+  background-color: rgba(16,14,12,.5);
+
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 29px,
+      rgba(255,173,89,.08) 30px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 29px,
+      rgba(255,173,89,.08) 30px
+    );
+
+  border: 1px solid rgba(232,160,77,.2);
+  border-radius: 12px;
+}
+
+.wave-diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.diagram-caption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+
+/* =========================================
+   WAVEFORM COMPONENTS
+========================================= */
+
+.component-item {
+  padding: 17px 0;
+  border-bottom: 1px solid rgba(232,160,77,.2);
+}
+
+.component-item:first-child {
+  padding-top: 0;
+}
+
+.component-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.component-item h3 {
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+
+
+/* =========================================
+   WAVEFORM TYPES
+========================================= */
+
+.waveform-types-section {
+  margin-top: 20px;
+}
+
+.waveform-types-section > p {
+  margin-bottom: 15px;
+}
+
+.waveform-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+  margin-top: 20px;
+}
+
+.wave-type {
+  min-width: 0;
+  padding: 17px 10px;
+
+  background: rgba(255,255,255,.025);
+
+  border: 1px solid var(--border);
+  border-radius: 13px;
+
+  color: var(--text);
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+.wave-type:hover {
+  background: rgba(255,173,89,.08);
+  border-color: var(--orange);
+  transform: translateY(-3px);
+}
+
+.wave-type.playing {
+  background: rgba(255,173,89,.14);
+  border-color: var(--orange);
+  box-shadow: 0 0 15px rgba(255,173,89,.18);
+}
+
+.wave-type-name {
+  display: block;
+  margin-bottom: 15px;
+
+  color: #edbd85;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.wave-type svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.wave-play-hint {
+  display: block;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.lesson-footer {
+  margin-top: 45px;
+  padding: 20px 0;
+
+  border-top: 1px solid var(--border);
+
+  color: #867767;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+
+/* =========================================
+   RESPONSIVE TABLET
+========================================= */
+
+@media (max-width: 800px) {
+
+  .fundamentals-container {
+    padding: 55px 30px 40px;
+  }
+
+  .waveform-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================
+   RESPONSIVE MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .fundamentals-header {
+    height: 65px;
+    padding: 0 16px;
+  }
+
+  .header-title {
+    font-size: 14px;
+  }
+
+  .fundamentals-container {
+    padding: 40px 17px 35px;
+  }
+
+  .page-heading {
+    margin-bottom: 25px;
+  }
+
+  .page-heading h1 {
+    font-size: 30px;
+  }
+
+  .topic-list {
+    gap: 14px;
+  }
+
+  .topic-card {
+    min-height: 115px;
+    padding: 23px 22px;
+    border-radius: 14px;
+  }
+
+  .topic-card h2 {
+    font-size: 19px;
+  }
+
+  .topic-arrow {
+    font-size: 35px;
+  }
+
+  .content-card,
+  .fact-card {
+    padding: 22px 18px;
+    border-radius: 13px;
+  }
+
+  .content-card h3 {
+    font-size: 17px;
+  }
+
+  .content-card p,
+  .fact-card p {
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  .frequency-row {
+    padding: 14px 12px;
+    font-size: 12px;
+  }
+
+  .frequency-row strong {
+    font-size: 10px;
+  }
+
+  .wave-diagram {
+    padding: 10px 2px;
+  }
+
+  .waveform-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .wave-type {
+    padding: 14px 8px;
+  }
+
+  .wave-type-name {
+    font-size: 11px;
+  }
+
+}
+
+@media (max-width: 350px) {
+
+  .frequency-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .frequency-row strong {
+    text-align: left;
+  }
+
+}

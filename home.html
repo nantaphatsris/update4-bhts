@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Home | Behind The Sound</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Home CSS -->
+  <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+
+  <!-- =====================================
+       HEADER : เหมือน Landing Page
+       ☰ อยู่ซ้าย + Logo อยู่ถัดไป
+  ====================================== -->
+
+  <header class="main-header">
+
+    <div class="header-left">
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Open menu"
+        aria-expanded="false">
+        ☰
+      </button>
+
+      <a href="home.html" class="logo">
+        Behind The Sound
+      </a>
+
+    </div>
+
+    <!-- SIDE MENU -->
+
+    <nav class="main-menu" id="mainMenu">
+
+      <a href="home.html">Home</a>
+
+      <a href="pretest.html">Pre Test</a>
+
+      <a href="learning.html">Learning</a>
+
+      <a href="practice.html">Practice</a>
+
+      <a href="posttest.html">Post Test</a>
+
+      <div class="menu-divider"></div>
+
+      <button class="menu-logout" id="logoutButton">
+        Log Out
+      </button>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =====================================
+       MAIN CONTENT
+  ====================================== -->
+
+  <main class="home-container">
+
+    <!-- LEARNING PROGRESS -->
+
+    <section class="progress-section">
+
+      <div class="section-heading">
+        
+        <h1>Learning Progress</h1>
+      </div>
+
+
+      <div class="progress-card">
+
+        <!-- LEFT : LESSON COUNT -->
+
+        <div class="progress-left">
+
+          <p class="progress-caption">
+            Completed Lessons
+          </p>
+
+          <h2 id="lessonCount">
+            0 <span>/ 7</span>
+          </h2>
+
+          <p class="progress-description">
+            Keep learning and discover more about sound.
+          </p>
+
+          <div class="progress-bar">
+            <div
+              class="progress-bar-fill"
+              id="progressBarFill">
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- RIGHT : CIRCLE PROGRESS -->
+
+        <div class="progress-right">
+
+          <div class="progress-circle" id="progressCircle">
+
+            <div class="circle-inner">
+
+              <strong id="progressPercent">0%</strong>
+
+              <span>Completed</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- DIVIDER -->
+
+        <div class="progress-divider"></div>
+
+
+        <!-- PRETEST SCORE -->
+
+        <a href="pretest.html" class="info-item">
+
+          <div class="info-icon">
+
+            <svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.7"
+              stroke-linecap="round" stroke-linejoin="round">
+
+              <path d="M9 11l3 3L22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+
+            </svg>
+
+          </div>
+
+          <div>
+
+            <span class="info-title">Pretest Score</span>
+
+            <strong id="pretestScore">0</strong>
+
+            <span id="pretestStatus">Not completed</span>
+
+          </div>
+
+        </a>
+
+
+        <!-- RECENT LESSON -->
+
+        <a href="learning.html" class="info-item">
+
+          <div class="info-icon">
+
+            <svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.7"
+              stroke-linecap="round" stroke-linejoin="round">
+
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+              <path d="M8 7h8M8 11h8"/>
+
+            </svg>
+
+          </div>
+
+          <div>
+
+            <span class="info-title">Recent Lesson</span>
+
+            <strong id="recentLesson">Not started</strong>
+
+            <span id="recentLessonStatus">Start learning</span>
+
+          </div>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         START EXPLORING
+    ====================================== -->
+
+    <section class="explore-section">
+
+      <div class="section-heading explore-heading">
+
+
+        <h2>Start Exploring</h2>
+
+        <p class="explore-description">
+          Choose your next step and explore the world behind sound.
+        </p>
+
+      </div>
+
+
+      <div class="explore-grid">
+
+
+        <!-- LEARNING -->
+
+        <a href="learning.html" class="explore-card">
+
+          <span class="card-arrow">↗</span>
+
+          <div class="explore-icon">
+
+            <svg viewBox="0 0 48 48" fill="none"
+              stroke="currentColor" stroke-width="1.7"
+              stroke-linecap="round" stroke-linejoin="round">
+
+              <path d="M7 9.5A3.5 3.5 0 0 1 10.5 6H40v33H10.5A3.5 3.5 0 0 0 7 42.5Z"/>
+
+              <path d="M7 9.5v33"/>
+
+              <path d="M14 13h18M14 19h18M14 25h12"/>
+
+              <path d="M10.5 39H40"/>
+
+            </svg>
+
+          </div>
+
+          <div class="explore-card-text">
+
+            <h3>Learning</h3>
+
+            <p>
+              Learn about sound fundamentals and audio processing.
+            </p>
+
+          </div>
+
+        </a>
+
+
+        <!-- PRACTICE -->
+
+        <a href="practice.html" class="explore-card">
+
+          <span class="card-arrow">↗</span>
+
+          <div class="explore-icon">
+
+            <svg viewBox="0 0 48 48" fill="none"
+              stroke="currentColor" stroke-width="1.7"
+              stroke-linecap="round" stroke-linejoin="round">
+
+              <rect x="7" y="7" width="34" height="34" rx="7"/>
+
+              <path d="M15 17h18M15 24h18M15 31h9"/>
+
+              <circle cx="34" cy="31" r="5"/>
+
+              <path d="M32 31l1.5 1.5L36 29"/>
+
+            </svg>
+
+          </div>
+
+          <div class="explore-card-text">
+
+            <h3>Practice</h3>
+
+            <p>
+              Experiment with sound effects and test your listening skills.
+            </p>
+
+          </div>
+
+        </a>
+
+
+        <!-- POST TEST -->
+
+        <a href="posttest.html" class="explore-card">
+
+          <span class="card-arrow">↗</span>
+
+          <div class="explore-icon">
+
+            <svg viewBox="0 0 48 48" fill="none"
+              stroke="currentColor" stroke-width="1.7"
+              stroke-linecap="round" stroke-linejoin="round">
+
+              <rect x="8" y="5" width="27" height="37" rx="4"/>
+
+              <path d="M15 14h13M15 21h13M15 28h6"/>
+
+              <circle cx="34" cy="33" r="9"/>
+
+              <path d="M34 28v5l3 2"/>
+
+            </svg>
+
+          </div>
+
+          <div class="explore-card-text">
+
+            <h3>Post Test</h3>
+
+            <p>
+              Evaluate your knowledge and see how much you have learned.
+            </p>
+
+          </div>
+
+        </a>
+
+
+      </div>
+
+    </section>
+
+
+
+  <!-- JAVASCRIPT -->
+  <script type="module" src="home.js"></script>
+
+</body>
+</html>

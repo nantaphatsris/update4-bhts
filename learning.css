@@ -1,0 +1,776 @@
+
+/* =========================================
+   BEHIND THE SOUND
+   LEARNING PAGE
+   DARK GOLD THEME
+========================================= */
+
+
+/* =========================================
+   1. ROOT
+========================================= */
+
+:root {
+
+  --bg: #100e0c;
+
+  --panel: #211d18;
+
+  --panel-light: #29241e;
+
+  --orange: #ff9d43;
+
+  --gold: #e8a04d;
+
+  --text: #f4e7d9;
+
+  --muted: #c6b7a9;
+
+  --border: rgba(255,157,67,.3);
+
+}
+
+
+* {
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+}
+
+
+html {
+
+  scroll-behavior: smooth;
+
+}
+
+
+body {
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 35%,
+      rgba(192,95,25,.08),
+      transparent 60%
+    ),
+    #100e0c;
+
+  color: var(--text);
+
+  font-family: 'Montserrat', 'Kanit', sans-serif;
+
+}
+
+
+button,
+a {
+
+  font: inherit;
+
+}
+
+
+/* =========================================
+   2. HEADER
+========================================= */
+
+.site-header {
+
+  width: 100%;
+
+  height: 75px;
+
+  padding: 0 30px;
+
+  display: flex;
+
+  align-items: center;
+
+  background: rgba(20,17,14,.97);
+
+  border-bottom: 1px solid rgba(255,157,67,.25);
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
+
+}
+
+
+.header-left {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+}
+
+
+/* MENU BUTTON */
+
+.menu-toggle {
+
+  background: transparent;
+
+  border: none;
+
+  color: var(--orange);
+
+  font-size: 29px;
+
+  cursor: pointer;
+
+  padding: 5px;
+
+  line-height: 1;
+
+  transition: .3s;
+
+}
+
+
+.menu-toggle:hover {
+
+  color: #ffc078;
+
+  transform: scale(1.08);
+
+}
+
+
+/* WEBSITE LOGO */
+
+.logo {
+
+  color: var(--orange);
+
+  font-size: 23px;
+
+  font-weight: 800;
+
+  letter-spacing: -.5px;
+
+  white-space: nowrap;
+
+  text-decoration: none;
+
+}
+
+
+/* =========================================
+   3. NAVIGATION MENU
+========================================= */
+
+.main-menu {
+
+  display: none;
+
+  position: absolute;
+
+  top: 75px;
+
+  left: 0;
+
+  width: 290px;
+
+  height: calc(100vh - 75px);
+
+  padding: 25px;
+
+  background: #191512;
+
+  border-right: 1px solid rgba(255,157,67,.35);
+
+  border-bottom: 1px solid rgba(255,157,67,.35);
+
+  box-shadow: 0 15px 35px rgba(0,0,0,.5);
+
+  flex-direction: column;
+
+  gap: 0;
+
+  overflow-y: auto;
+
+}
+
+
+.main-menu.active {
+
+  display: flex;
+
+}
+
+
+.main-menu a {
+
+  display: block;
+
+  color: #e8d6c5;
+
+  text-decoration: none;
+
+  font-size: 16px;
+
+  padding: 20px 10px;
+
+  border-bottom: 1px solid rgba(255,157,67,.15);
+
+  transition: .3s;
+
+}
+
+
+.main-menu a:hover,
+.main-menu a.active {
+
+  color: var(--orange);
+
+  padding-left: 18px;
+
+}
+
+
+/* =========================================
+   4. MAIN CONTAINER
+========================================= */
+
+.learning-container {
+
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 80px 45px 100px;
+
+}
+
+
+/* =========================================
+   5. HERO SECTION
+========================================= */
+
+.learning-hero {
+
+  width: 100%;
+
+  margin-bottom: 55px;
+
+  text-align: left;
+
+}
+
+
+.learning-hero h1 {
+
+  color: var(--orange);
+
+  font-size: clamp(42px, 6vw, 65px);
+
+  font-weight: 800;
+
+  letter-spacing: -2px;
+
+  line-height: 1.15;
+
+  margin-bottom: 18px;
+
+  text-shadow: 0 0 30px rgba(255,145,50,.15);
+
+}
+
+
+.learning-hero p {
+
+  max-width: 720px;
+
+  color: var(--muted);
+
+  font-size: 16px;
+
+  line-height: 1.9;
+
+}
+
+
+/* =========================================
+   6. LEARNING SECTIONS
+========================================= */
+
+.learning-sections {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 25px;
+
+  align-items: stretch;
+
+}
+
+
+/* =========================================
+   7. LEARNING CARD
+========================================= */
+
+.learning-card {
+
+  position: relative;
+
+  min-height: 390px;
+
+  padding: 35px 30px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(46,39,31,.98),
+      rgba(25,22,18,.98)
+    );
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  transition: .3s;
+
+}
+
+
+.learning-card:hover {
+
+  border-color: rgba(255,157,67,.7);
+
+  transform: translateY(-5px);
+
+  box-shadow: 0 15px 35px rgba(0,0,0,.3);
+
+}
+
+
+/* CARD CONTENT */
+
+.card-content {
+
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 100%;
+
+}
+
+
+/* CARD TITLE */
+
+.card-content h2 {
+
+  color: #f4bd87;
+
+  font-size: clamp(22px, 2.5vw, 29px);
+
+  font-weight: 700;
+
+  line-height: 1.35;
+
+  margin-bottom: 18px;
+
+}
+
+
+/* CARD SUBTITLE */
+
+.card-content h3 {
+
+  color: #f4e7d9;
+
+  font-size: 17px;
+
+  font-weight: 600;
+
+  line-height: 1.5;
+
+  margin-bottom: 12px;
+
+}
+
+
+/* CARD DESCRIPTION */
+
+.card-content p {
+
+  color: #c6b7a9;
+
+  font-size: 14px;
+
+  font-weight: 400;
+
+  line-height: 1.9;
+
+}
+
+
+/* =========================================
+   8. CARD DECORATIONS
+========================================= */
+
+.card-decoration {
+
+  position: absolute;
+
+  pointer-events: none;
+
+  opacity: .22;
+
+}
+
+
+/* WAVEFORM DECORATION */
+
+.waveform-decoration {
+
+  top: 45px;
+
+  right: 28px;
+
+  height: 95px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+}
+
+
+.waveform-decoration span {
+
+  width: 4px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    to top,
+    #a95120,
+    #ffb253
+  );
+
+}
+
+
+.waveform-decoration span:nth-child(1),
+.waveform-decoration span:nth-child(15) {
+
+  height: 15px;
+
+}
+
+
+.waveform-decoration span:nth-child(2),
+.waveform-decoration span:nth-child(14) {
+
+  height: 35px;
+
+}
+
+
+.waveform-decoration span:nth-child(3),
+.waveform-decoration span:nth-child(13) {
+
+  height: 55px;
+
+}
+
+
+.waveform-decoration span:nth-child(4),
+.waveform-decoration span:nth-child(12) {
+
+  height: 75px;
+
+}
+
+
+.waveform-decoration span:nth-child(5),
+.waveform-decoration span:nth-child(11) {
+
+  height: 90px;
+
+}
+
+
+.waveform-decoration span:nth-child(6),
+.waveform-decoration span:nth-child(10) {
+
+  height: 60px;
+
+}
+
+
+.waveform-decoration span:nth-child(7),
+.waveform-decoration span:nth-child(9) {
+
+  height: 35px;
+
+}
+
+
+.waveform-decoration span:nth-child(8) {
+
+  height: 75px;
+
+}
+
+
+/* PROCESSOR DECORATION */
+
+.processor-decoration {
+
+  top: 35px;
+
+  right: 30px;
+
+}
+
+
+.processor-icon {
+
+  width: 100px;
+
+  height: 100px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  border: 1px solid var(--orange);
+
+  border-radius: 18px;
+
+  transform: rotate(-8deg);
+
+}
+
+
+.processor-icon span {
+
+  color: #ffb66f;
+
+  font-size: 30px;
+
+  font-weight: 600;
+
+}
+
+
+/* =========================================
+   9. RESPONSIVE - TABLET
+========================================= */
+
+@media (max-width: 800px) {
+
+  .learning-container {
+
+    padding: 65px 30px 80px;
+
+  }
+
+
+  .learning-sections {
+
+    gap: 18px;
+
+  }
+
+
+  .learning-card {
+
+    min-height: 370px;
+
+    padding: 28px 22px;
+
+  }
+
+
+  .card-content h2 {
+
+    font-size: 22px;
+
+  }
+
+
+  .card-content h3 {
+
+    font-size: 15px;
+
+  }
+
+
+  .card-content p {
+
+    font-size: 13px;
+
+  }
+
+}
+
+
+/* =========================================
+   10. RESPONSIVE - MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .site-header {
+
+    height: 75px;
+
+    padding: 0 18px;
+
+  }
+
+
+  .logo {
+
+    font-size: 21px;
+
+  }
+
+
+  .main-menu {
+
+    top: 75px;
+
+    width: 260px;
+
+    height: calc(100vh - 75px);
+
+  }
+
+
+  .learning-container {
+
+    padding: 55px 20px 70px;
+
+  }
+
+
+  .learning-hero {
+
+    margin-bottom: 35px;
+
+  }
+
+
+  .learning-hero h1 {
+
+    font-size: 43px;
+
+  }
+
+
+  .learning-hero p {
+
+    font-size: 14px;
+
+  }
+
+
+  .learning-sections {
+
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+  }
+
+
+  .learning-card {
+
+    min-height: 300px;
+
+    padding: 27px 23px;
+
+  }
+
+
+  .card-content h2 {
+
+    font-size: 25px;
+
+  }
+
+
+  .card-content h3 {
+
+    font-size: 16px;
+
+  }
+
+
+  .card-content p {
+
+    font-size: 14px;
+
+  }
+
+}
+
+
+/* =========================================
+   11. SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+
+  .learning-container {
+
+    padding-left: 15px;
+
+    padding-right: 15px;
+
+  }
+
+
+  .learning-card {
+
+    padding: 23px 18px;
+
+  }
+
+}
+
+
+/* =========================================
+   END OF LEARNING CSS
+========================================= */
+.learning-card {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}

@@ -1,0 +1,1491 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Behind The Sound</title>
+
+<style>
+
+/* =========================================
+   1. GLOBAL SETTINGS
+   กำหนดสี ฟอนต์ และค่าพื้นฐานของเว็บไซต์
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #100e0c;
+  --panel: #191512;
+  --orange: #ff9d43;
+  --gold: #e8a04d;
+  --text: #f4e7d9;
+  --muted: #b9a99a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Montserrat', 'Kanit', sans-serif;
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   2. HEADER
+   แถบด้านบน โลโก้ และปุ่มเมนูสามขีด
+========================================= */
+
+header {
+  width: 100%;
+  height: 75px;
+  padding: 0 30px;
+
+  display: flex;
+  align-items: center;
+
+  background: rgba(20,17,14,0.97);
+  border-bottom: 1px solid rgba(255,157,67,0.25);
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.menu-toggle {
+  background: transparent;
+  border: none;
+  color: var(--orange);
+  font-size: 29px;
+  cursor: pointer;
+  padding: 5px;
+  line-height: 1;
+  transition: .3s;
+}
+
+.menu-toggle:hover {
+  color: #ffc078;
+  transform: scale(1.08);
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 800;
+  color: var(--orange);
+  white-space: nowrap;
+  letter-spacing: -0.5px;
+}
+
+
+/* =========================================
+   3. DROPDOWN MENU
+   เมนู Pre Test, Learning, Practice, Post Test
+========================================= */
+
+nav {
+  display: none;
+
+  position: absolute;
+  top: 75px;
+  left: 0;
+
+  width: 290px;
+  height: calc(100vh - 75px);
+
+  padding: 25px;
+
+  background: #191512;
+  border-right: 1px solid rgba(255,157,67,.35);
+  border-bottom: 1px solid rgba(255,157,67,.35);
+
+  box-shadow: 0 15px 35px rgba(0,0,0,.5);
+
+  flex-direction: column;
+  gap: 0;
+  overflow-y: auto;
+}
+
+nav.active {
+  display: flex;
+}
+
+nav > a {
+  color: #e8d6c5;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 20px 10px;
+
+  border-bottom: 1px solid rgba(255,157,67,.15);
+  transition: .3s;
+}
+
+nav > a:hover {
+  color: var(--orange);
+  padding-left: 18px;
+}
+
+.menu-auth {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  margin-top: auto;
+  padding-top: 30px;
+}
+
+.menu-auth a,
+.menu-auth button {
+  width: 100%;
+  text-align: center;
+  padding: 13px;
+
+  border: 1px solid var(--orange);
+  border-radius: 25px;
+
+  text-decoration: none;
+  color: var(--orange);
+  background: transparent;
+
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.menu-auth a:last-child {
+  background: var(--orange);
+  color: #19110a;
+}
+
+.menu-auth a:hover,
+.menu-auth button:hover {
+  box-shadow: 0 0 15px rgba(255,157,67,.3);
+}
+
+
+/* =========================================
+   4. HERO SECTION
+   ส่วนหน้าแรกของเว็บไซต์
+========================================= */
+
+.hero {
+  min-height: 700px;
+  padding: 100px 10% 85px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  position: relative;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 65%,
+      rgba(192,95,25,.13),
+      transparent 55%
+    ),
+    linear-gradient(180deg, #15110e, #100e0c);
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  position: relative;
+  z-index: 1;
+}
+
+/* หัวข้อหลัก จัดชิดซ้าย */
+
+.hero h1 {
+  font-size: clamp(42px, 7vw, 78px);
+  line-height: 1.15;
+
+  font-weight: 800;
+  color: var(--orange);
+
+  letter-spacing: -2px;
+  text-shadow: 0 0 35px rgba(255,145,50,.2);
+
+  text-align: left;
+}
+
+/* Tagline ยังคงจัดกึ่งกลาง */
+
+.hero h2 {
+  font-size: clamp(17px, 2.5vw, 26px);
+  font-weight: 400;
+
+  color: #e7a36c;
+
+  margin-top: 20px;
+  letter-spacing: 1px;
+
+  text-align: left;
+}
+
+/* คำอธิบายเว็บไซต์ จัดชิดซ้าย */
+
+.hero p {
+  margin-top: 30px;
+  max-width: 750px;
+
+  font-size: 16px;
+  line-height: 2;
+
+  color: #c6b7a9;
+  text-align: left;
+}
+
+
+/* =========================================
+   5. AUDIO EQUIPMENT GRAPHIC
+   ภาพคลื่นเสียง หูฟัง และ Audio Mixer
+   ใช้ SVG สร้างภาพ ไม่ต้องใช้ไฟล์ภาพแยก
+========================================= */
+
+.audio-visual {
+  width: 100%;
+  max-width: 620px;
+
+  margin: 35px auto 25px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.audio-visual svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+
+  filter: drop-shadow(0 0 15px rgba(255,145,50,.12));
+}
+
+/* เอฟเฟกต์แสงสีส้ม */
+
+.glow {
+  filter: url(#orangeGlow);
+}
+
+.visual-bg {
+  fill: #17110d;
+  stroke: rgba(255,157,67,.4);
+  stroke-width: 1.5;
+}
+
+.wave-bar {
+  stroke: #ffad50;
+  stroke-width: 2;
+  stroke-linecap: round;
+  fill: none;
+}
+
+/* Animation คลื่นเสียง */
+
+.wave-animated {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: waveMotion 1.2s ease-in-out infinite alternate;
+}
+
+.wave-animated:nth-child(2n) {
+  animation-delay: .2s;
+}
+
+.wave-animated:nth-child(3n) {
+  animation-delay: .4s;
+}
+
+@keyframes waveMotion {
+  from {
+    transform: scaleY(.65);
+    opacity: .65;
+  }
+
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* เอฟเฟกต์เมื่อเลื่อนเมาส์ไปบนภาพ */
+
+.audio-visual .equipment {
+  transition: .3s;
+}
+
+.audio-visual:hover .equipment {
+  filter: url(#orangeGlow);
+}
+
+
+/* =========================================
+   6. HERO ACTIONS
+   ส่วนปุ่ม Get Started และ Login / Signup
+   ทั้งหมดอยู่ต่อกันใต้ภาพ Audio Equipment
+========================================= */
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* ปุ่ม Get Started */
+
+.get-started {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 14px 32px;
+  min-width: 250px;
+
+  background: linear-gradient(
+    135deg,
+    #ffc078,
+    #f28b32
+  );
+
+  border: 1px solid #ffbd70;
+  border-radius: 35px;
+
+  color: #21140a;
+  text-decoration: none;
+
+  font-family: 'Kanit', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+
+  box-shadow:
+    0 0 12px rgba(255,151,54,.5),
+    0 0 30px rgba(255,151,54,.2),
+    inset 0 1px 2px rgba(255,255,255,.5);
+
+  transition: .3s;
+}
+
+.get-started:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 18px rgba(255,151,54,.7),
+    0 0 40px rgba(255,151,54,.35);
+}
+
+.get-started .arrow {
+  font-size: 20px;
+}
+
+
+/* =========================================
+   7. LOGIN / SIGNUP BUTTONS
+   ย้ายปุ่มจากส่วนล่างสุดมาอยู่ใต้ Get Started
+   ยังคงเรียงแนวนอนเหมือนดีไซน์เดิม
+========================================= */
+
+.auth-buttons {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+
+  margin-top: 5px;
+}
+
+/* รูปแบบปุ่มทั้งสอง */
+
+.auth-buttons a,
+.auth-buttons button {
+  min-width: 155px;
+  padding: 15px 35px;
+
+  border-radius: 35px;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+
+  text-decoration: none;
+  text-align: center;
+
+  cursor: pointer;
+  transition: .3s;
+}
+
+/* ปุ่ม Log In */
+
+.login {
+  color: var(--orange);
+  border: 1px solid var(--orange);
+  background: transparent;
+}
+
+/* ปุ่ม Sign Up */
+
+.signup {
+  color: #21140a;
+
+  background: linear-gradient(
+    135deg,
+    #ffc078,
+    #f28b32
+  );
+
+  border: 1px solid #ffb05b;
+  box-shadow: 0 0 20px rgba(255,151,54,.2);
+}
+
+/* Hover effect */
+
+.auth-buttons a:hover,
+.auth-buttons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(255,151,54,.4);
+}
+
+
+/* =========================================
+   8. ABOUT SECTION
+   ส่วนแนะนำเกี่ยวกับเว็บไซต์
+========================================= */
+
+section:not(.hero) {
+  padding: 100px 10%;
+  scroll-margin-top: 85px;
+}
+
+.section-title {
+  font-size: 34px;
+  font-weight: 700;
+
+  color: var(--orange);
+  margin-bottom: 30px;
+}
+
+.about {
+  background: #15110e;
+  text-align: center;
+}
+
+.about p {
+  max-width: 900px;
+  margin: auto;
+
+  color: #c8b9aa;
+
+  font-family: 'Kanit', sans-serif;
+  font-size: 17px;
+  line-height: 2.2;
+}
+
+
+/* =========================================
+   9. WHAT YOU WILL EXPLORE
+   ส่วนอธิบายเนื้อหาที่ผู้เรียนจะได้เรียนรู้
+========================================= */
+
+.explore {
+  background:
+    radial-gradient(
+      ellipse at 50% 40%,
+      rgba(173,87,30,.08),
+      transparent 70%
+    ),
+    #100e0c;
+}
+
+.explore-inner {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.explore .section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.explore-item {
+  padding: 27px 0;
+  border-bottom: 1px solid rgba(255,157,67,.18);
+}
+
+.explore-item p {
+  color: #c8b9aa;
+  font-size: 16px;
+  line-height: 2;
+}
+
+.explore-item strong {
+  color: var(--orange);
+  font-weight: 600;
+}
+
+
+/* =========================================
+   10. CLOSING SECTION
+   ส่วนข้อความปิดท้ายเว็บไซต์
+   ย้ายปุ่ม Login / Signup ออกแล้ว
+========================================= */
+
+.closing {
+  text-align: center;
+  padding: 90px 20px 110px;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(201,105,34,.16),
+      transparent 65%
+    ),
+    #15110e;
+}
+
+.closing h2 {
+  color: var(--orange);
+  font-size: clamp(24px, 4vw, 38px);
+  margin-bottom: 20px;
+}
+
+.closing p {
+  color: #c8b9aa;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+
+/* =========================================
+   11. RESPONSIVE DESIGN
+   ปรับการแสดงผลบนแท็บเล็ต
+========================================= */
+
+@media (max-width: 800px) {
+
+  .hero {
+    min-height: auto;
+    padding: 85px 7% 75px;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 8vw, 60px);
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .audio-visual {
+    max-width: 500px;
+    margin-top: 35px;
+  }
+
+  section:not(.hero) {
+    padding: 75px 7%;
+  }
+
+}
+
+
+/* =========================================
+   12. MOBILE RESPONSIVE
+   ปรับขนาดปุ่ม ภาพ และตัวอักษรบนมือถือ
+========================================= */
+
+@media (max-width: 450px) {
+
+  header {
+    padding: 0 18px;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+  nav {
+    width: 260px;
+  }
+
+  .hero {
+    padding: 75px 7% 65px;
+  }
+
+  .hero h1 {
+    font-size: 39px;
+    letter-spacing: -1.5px;
+  }
+
+  .hero h2 {
+    font-size: 16px;
+    margin-top: 18px;
+  }
+
+  .hero p {
+    font-size: 14px;
+    line-height: 1.9;
+    margin-top: 25px;
+  }
+
+  .audio-visual {
+    width: 110%;
+    max-width: 380px;
+    margin: 30px auto 20px;
+  }
+
+  .get-started {
+    min-width: 230px;
+    padding: 12px 25px;
+    font-size: 15px;
+  }
+
+  /* ปรับปุ่ม Login / Signup ให้เหมาะกับมือถือ */
+
+  .auth-buttons {
+    gap: 12px;
+    width: 100%;
+  }
+
+  .auth-buttons a,
+  .auth-buttons button {
+    min-width: 0;
+    flex: 1;
+    padding: 13px 12px;
+    font-size: 14px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+  <div class="header-left">
+
+    <button
+      class="menu-toggle"
+      onclick="toggleMenu()"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      id="menuButton">
+
+      ☰
+
+    </button>
+
+    <div class="logo">
+      Behind The Sound
+    </div>
+
+  </div>
+
+
+  <!-- เมนูหลักของเว็บไซต์ -->
+
+  <nav id="mainMenu">
+
+    <a href="#pre-test" onclick="closeMenu()">Pre Test</a>
+
+    <a href="#learning" onclick="closeMenu()">Learning</a>
+
+    <a href="#practice" onclick="closeMenu()">Practice</a>
+
+    <a href="#post-test" onclick="closeMenu()">Post Test</a>
+
+
+    <!-- ปุ่มสมาชิกภายในเมนูสามขีด -->
+
+    <div class="menu-auth" id="menuAuth">
+
+      <a href="login.html">Log In</a>
+
+      <a href="signup.html">Sign Up</a>
+
+    </div>
+
+  </nav>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =========================================
+     HERO SECTION
+     หน้าแรกของเว็บไซต์
+========================================= -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+
+    <!-- หัวข้อหลัก -->
+
+    <h1>
+      BEHIND THE SOUND
+    </h1>
+
+
+    <!-- Tagline จัดกึ่งกลาง -->
+
+    <h2>
+      Hear It. Understand It. Create It.
+    </h2>
+
+
+    <!-- คำอธิบายเว็บไซต์ -->
+
+    <p>
+      Discover the science behind sound and explore the world of audio processing.
+      Learn through interactive lessons, experiment with real audio effects,
+      and train your ears through hands-on practice.
+    </p>
+
+
+
+    <!-- =====================================
+         AUDIO EQUIPMENT GRAPHIC
+         ภาพคลื่นเสียง หูฟัง และ Audio Mixer
+    ====================================== -->
+
+    <div class="audio-visual">
+
+      <svg
+        viewBox="0 0 600 330"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Audio waveform, headphones and audio mixer illustration">
+
+
+        <!-- เอฟเฟกต์แสงและสี -->
+
+        <defs>
+
+          <filter id="orangeGlow"
+                  x="-100%"
+                  y="-100%"
+                  width="300%"
+                  height="300%">
+
+            <feGaussianBlur
+              stdDeviation="5"
+              result="blur"/>
+
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+
+          </filter>
+
+
+          <!-- Gradient สีส้ม -->
+
+          <linearGradient id="orangeGradient"
+                          x1="0" y1="0"
+                          x2="1" y2="1">
+
+            <stop offset="0%"
+                  stop-color="#ffc078"/>
+
+            <stop offset="100%"
+                  stop-color="#f28b32"/>
+
+          </linearGradient>
+
+
+          <!-- Gradient พื้นหลังอุปกรณ์ -->
+
+          <linearGradient id="panelGradient"
+                          x1="0" y1="0"
+                          x2="0" y2="1">
+
+            <stop offset="0%"
+                  stop-color="#49301d"/>
+
+            <stop offset="100%"
+                  stop-color="#1b120d"/>
+
+          </linearGradient>
+
+        </defs>
+
+
+
+        <!-- แสงพื้นหลัง -->
+
+        <ellipse
+          cx="300"
+          cy="175"
+          rx="240"
+          ry="120"
+          fill="#d66b24"
+          opacity=".07"/>
+
+
+
+        <!-- =================================
+             SOUND WAVEFORM
+        ================================== -->
+
+        <g transform="rotate(-5 300 100)"
+           class="equipment">
+
+
+          <!-- กรอบคลื่นเสียง -->
+
+          <rect
+            x="135"
+            y="35"
+            width="365"
+            height="120"
+            rx="23"
+            fill="url(#panelGradient)"
+            stroke="#9b6335"
+            stroke-width="2"
+            opacity=".95"/>
+
+
+          <!-- เส้นกึ่งกลาง -->
+
+          <path
+            d="M155 95 H480"
+            stroke="#ff9d43"
+            opacity=".25"
+            stroke-width="1"/>
+
+
+          <!-- คลื่นเสียง -->
+
+          <g class="glow">
+
+            <path class="wave-bar wave-animated"
+              d="M160 85 V105
+                 M169 75 V115
+                 M178 88 V102
+                 M187 60 V130
+                 M196 78 V112
+                 M205 50 V140
+                 M214 70 V120
+                 M223 85 V105
+                 M232 55 V135
+                 M241 40 V150
+                 M250 68 V122
+                 M259 80 V110
+                 M268 50 V140
+                 M277 75 V115
+                 M286 60 V130
+                 M295 42 V148
+                 M304 72 V118
+                 M313 80 V110
+                 M322 55 V135
+                 M331 35 V155
+                 M340 65 V125
+                 M349 80 V110
+                 M358 55 V135
+                 M367 75 V115
+                 M376 45 V145
+                 M385 70 V120
+                 M394 55 V135
+                 M403 82 V108
+                 M412 65 V125
+                 M421 45 V145
+                 M430 75 V115
+                 M439 85 V105
+                 M448 60 V130
+                 M457 78 V112
+                 M466 85 V105"/>
+
+          </g>
+
+        </g>
+
+
+
+        <!-- =================================
+             HEADPHONES
+        ================================== -->
+
+        <g transform="rotate(8 155 210)"
+           class="equipment">
+
+
+          <!-- กรอบหูฟัง -->
+
+          <rect
+            x="65"
+            y="165"
+            width="115"
+            height="110"
+            rx="23"
+            fill="url(#panelGradient)"
+            stroke="#e8a04d"
+            stroke-width="2"/>
+
+
+          <!-- สัญลักษณ์หูฟัง -->
+
+          <g
+            fill="none"
+            stroke="url(#orangeGradient)"
+            stroke-width="9"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="glow">
+
+
+            <path
+              d="M87 222
+                 V211
+                 A35 35 0 0 1 157 211
+                 V222"/>
+
+
+            <path
+              d="M87 217
+                 V239
+                 Q87 247 95 247
+                 H99
+                 V218
+                 Z"/>
+
+
+            <path
+              d="M157 217
+                 V239
+                 Q157 247 149 247
+                 H145
+                 V218
+                 Z"/>
+
+          </g>
+
+        </g>
+
+
+
+        <!-- =================================
+             AUDIO MIXER
+        ================================== -->
+
+        <g transform="rotate(7 370 210)"
+           class="equipment">
+
+
+          <!-- ตัวเครื่อง Mixer -->
+
+          <rect
+            x="205"
+            y="140"
+            width="300"
+            height="170"
+            rx="28"
+            fill="url(#panelGradient)"
+            stroke="url(#orangeGradient)"
+            stroke-width="4"
+            filter="url(#orangeGlow)"/>
+
+
+          <!-- พื้นผิวด้านใน -->
+
+          <rect
+            x="217"
+            y="152"
+            width="276"
+            height="145"
+            rx="19"
+            fill="#1c130d"
+            stroke="#8b5429"
+            stroke-width="1.5"/>
+
+
+          <!-- Slider 1 -->
+
+          <g>
+
+            <rect
+              x="245" y="175"
+              width="15" height="90"
+              rx="7"
+              fill="#392719"/>
+
+            <rect
+              x="241" y="218"
+              width="23" height="19"
+              rx="6"
+              fill="url(#orangeGradient)"
+              filter="url(#orangeGlow)"/>
+
+          </g>
+
+
+          <!-- Slider 2 -->
+
+          <g>
+
+            <rect
+              x="293" y="175"
+              width="15" height="90"
+              rx="7"
+              fill="#392719"/>
+
+            <rect
+              x="289" y="204"
+              width="23" height="19"
+              rx="6"
+              fill="url(#orangeGradient)"
+              filter="url(#orangeGlow)"/>
+
+          </g>
+
+
+          <!-- Slider 3 -->
+
+          <g>
+
+            <rect
+              x="341" y="175"
+              width="15" height="90"
+              rx="7"
+              fill="#392719"/>
+
+            <rect
+              x="337" y="190"
+              width="23" height="19"
+              rx="6"
+              fill="url(#orangeGradient)"
+              filter="url(#orangeGlow)"/>
+
+          </g>
+
+
+          <!-- Slider 4 -->
+
+          <g>
+
+            <rect
+              x="389" y="175"
+              width="15" height="90"
+              rx="7"
+              fill="#392719"/>
+
+            <rect
+              x="385" y="181"
+              width="23" height="19"
+              rx="6"
+              fill="url(#orangeGradient)"
+              filter="url(#orangeGlow)"/>
+
+          </g>
+
+
+          <!-- Slider 5 -->
+
+          <g>
+
+            <rect
+              x="437" y="175"
+              width="15" height="90"
+              rx="7"
+              fill="#392719"/>
+
+            <rect
+              x="433" y="169"
+              width="23" height="19"
+              rx="6"
+              fill="url(#orangeGradient)"
+              filter="url(#orangeGlow)"/>
+
+          </g>
+
+        </g>
+
+      </svg>
+
+    </div>
+
+
+
+    <!-- =====================================
+         HERO ACTIONS
+         เรียงปุ่มจากบนลงล่าง
+         1. Get Started
+         2. Log In
+         3. Sign Up
+    ====================================== -->
+
+    <div class="hero-actions">
+
+
+      <!-- ปุ่มเริ่มต้นเรียนรู้ -->
+
+      <a href="signup.html" class="get-started">
+
+        เริ่มต้นเรียนรู้ฟรี (Get Started)
+
+        <span class="arrow">→</span>
+
+      </a>
+
+
+
+      <!-- ปุ่ม Login และ Signup
+           ย้ายมาจาก Closing Section -->
+
+      <div class="auth-buttons" id="authButtons">
+
+        <a href="login.html" class="login">
+          Log In
+        </a>
+
+        <a href="signup.html" class="signup">
+          Sign Up
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
+     ABOUT SECTION
+     แนะนำรายละเอียดของเว็บไซต์
+========================================= -->
+
+<section class="about">
+
+  <h2 class="section-title">
+    About the Website
+  </h2>
+
+  <p>
+
+    Behind The Sound คือเว็บไซต์สื่อการเรียนรู้เกี่ยวกับ Sound
+    ที่ออกแบบมาเพื่อให้ผู้เรียนเข้าใจพื้นฐานทางเสียงและการทำงานของ
+    Audio Processor ผ่านการเรียนรู้ที่ผสมผสานระหว่างทฤษฎีและการทดลองจริง
+
+    ผู้เรียนจะได้เรียนรู้ตั้งแต่หลักการทางวิทยาศาสตร์ของเสียง
+    ไปจนถึงการใช้งาน Audio Processor แต่ละประเภท
+    พร้อมทดลองปรับแต่งเสียงด้วยตัวเอง
+    เพื่อให้เข้าใจว่าแต่ละการปรับเปลี่ยนส่งผลต่อเสียงอย่างไร
+
+  </p>
+
+</section>
+
+
+
+<!-- =========================================
+     WHAT YOU WILL EXPLORE
+     แสดงหัวข้อเนื้อหาภายในเว็บไซต์
+========================================= -->
+
+<section class="explore">
+
+  <div class="explore-inner">
+
+    <h2 class="section-title">
+      What You Will Explore
+    </h2>
+
+
+    <!-- Sound Fundamentals -->
+
+    <div class="explore-item" id="pre-test">
+
+      <p>
+
+        <strong>Sound Fundamentals:</strong>
+
+        Understand sound waves, frequency, hearing, and waveforms.
+
+      </p>
+
+    </div>
+
+
+    <!-- Audio Processors -->
+
+    <div class="explore-item" id="learning">
+
+      <p>
+
+        <strong>Audio Processors:</strong>
+
+        Discover and experiment with Filter, EQ, Compressor,
+        Gain Stage, Reverb, Delay, and Pitch Shift.
+
+      </p>
+
+    </div>
+
+
+    <!-- Interactive Practice -->
+
+    <div class="explore-item" id="practice">
+
+      <p>
+
+        <strong>Interactive Practice:</strong>
+
+        Challenge yourself to recreate target sounds,
+        receive feedback, and improve your skills.
+
+      </p>
+
+    </div>
+
+
+    <!-- Track Progress -->
+
+    <div class="explore-item" id="post-test">
+
+      <p>
+
+        <strong>Track Your Progress:</strong>
+
+        Monitor your learning journey and evaluate
+        your knowledge through a final assessment.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
+     CLOSING SECTION
+     ข้อความปิดท้ายเว็บไซต์
+     ไม่มีปุ่ม Login / Signup ซ้ำแล้ว
+========================================= -->
+
+<section class="closing">
+
+  <h2>
+    Don't Just Learn About Sound. Experience It.
+  </h2>
+
+  <p>
+
+    Start your journey and discover what's behind the sound.
+
+  </p>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+</footer>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+     ระบบเปิด/ปิดเมนู และเปลี่ยนปุ่มตามสถานะสมาชิก
+========================================= -->
+
+<script>
+
+
+/* =========================================
+   1. MENU OPEN / CLOSE
+   เปิดและปิดเมนูสามขีด
+========================================= */
+
+function toggleMenu() {
+
+  const menu = document.getElementById("mainMenu");
+
+  const button = document.getElementById("menuButton");
+
+  menu.classList.toggle("active");
+
+  button.setAttribute(
+    "aria-expanded",
+    menu.classList.contains("active")
+  );
+
+}
+
+
+// ปิดเมนูเมื่อผู้ใช้เลือกรายการ
+
+function closeMenu() {
+
+  document.getElementById("mainMenu")
+    .classList.remove("active");
+
+  document.getElementById("menuButton")
+    .setAttribute("aria-expanded", "false");
+
+}
+
+
+
+/* =========================================
+   2. AUTHENTICATION UI
+   เปลี่ยนปุ่มตามสถานะการเข้าสู่ระบบ
+========================================= */
+
+function setLoggedIn(isLoggedIn) {
+
+  const menuAuth = document.getElementById("menuAuth");
+
+  const authButtons = document.getElementById("authButtons");
+
+
+  // กรณีเข้าสู่ระบบแล้ว
+
+  if (isLoggedIn) {
+
+    // เปลี่ยนปุ่มในเมนูสามขีดเป็น Log Out
+
+    menuAuth.innerHTML = `
+
+      <button onclick="handleLogout()">
+        Log Out
+      </button>
+
+    `;
+
+
+    // เปลี่ยนปุ่ม Login / Signup ใต้ Get Started
+
+    authButtons.innerHTML = `
+
+      <button class="login" onclick="handleLogout()">
+        Log Out
+      </button>
+
+    `;
+
+  }
+
+
+  // กรณียังไม่ได้เข้าสู่ระบบ
+
+  else {
+
+    // แสดงปุ่ม Login / Signup ในเมนู
+
+    menuAuth.innerHTML = `
+
+      <a href="login.html">Log In</a>
+
+      <a href="signup.html">Sign Up</a>
+
+    `;
+
+
+    // แสดงปุ่ม Login / Signup ใต้ Get Started
+
+    authButtons.innerHTML = `
+
+      <a href="login.html" class="login">
+        Log In
+      </a>
+
+      <a href="signup.html" class="signup">
+        Sign Up
+      </a>
+
+    `;
+
+  }
+
+}
+
+
+
+/* =========================================
+   3. LOGOUT
+   ระบบออกจากระบบตัวอย่าง
+========================================= */
+
+// หมายเหตุ:
+// ฟังก์ชันนี้เป็นเพียง UI ตัวอย่าง
+// หากใช้งาน Firebase Authentication จริง
+// ต้องเชื่อมกับ Firebase signOut เพิ่มเติม
+
+function handleLogout() {
+
+  setLoggedIn(false);
+
+}
+
+
+
+// กำหนดค่าเริ่มต้น
+// false = ยังไม่ได้เข้าสู่ระบบ
+
+setLoggedIn(false);
+
+
+</script>
+
+</body>
+</html>
